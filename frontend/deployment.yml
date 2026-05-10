@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: connectwe-frontend
-          image: sahil0724/connectwe-frontend:1
+          image: sahil0724/connectwe-frontend:6
           ports:
             - containerPort: 80
           resources:
