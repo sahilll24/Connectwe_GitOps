@@ -1,0 +1,31 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: connectwe-deployment-frontend
+  labels:
+    app: connectwe-frontend-deployment
+  namespace: connectwe-ns
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: connectwe-frontend-deployment
+  template:
+    metadata:
+      name: connectwe-frontend-pod
+      labels:
+        app: connectwe-frontend-deployment
+      namespace: connectwe-ns
+    spec:
+      containers:
+        - name: connectwe-frontend
+          image: sahil0724/frontend:latest
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 200m
+              memory: 200Mi
+            limits:
+              cpu: 300m
+              memory: 400Mi

@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: connectwe-service-frontend
+  labels:
+    app: connectwe-service-frontend
+  namespace: connectwe-ns
+spec:
+  selector:
+    app: connectwe-frontend-deployment
+  ports:
+    - protocol: TCP
+      port: 8081
+      targetPort: 80
+  type: ClusterIP

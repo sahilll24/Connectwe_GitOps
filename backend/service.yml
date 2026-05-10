@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: backend
+  labels:
+    app: backend
+  namespace: connectwe-ns
+spec:
+  selector:
+    app: connectwe-backend-deployment
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+  type: ClusterIP
