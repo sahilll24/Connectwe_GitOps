@@ -1,14 +1,18 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
+
 metadata:
   name: connectwe-ingress
   namespace: connectwe-ns
+
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+
 spec:
   ingressClassName: nginx
 
   rules:
   - host: connectwe.local
-
     http:
       paths:
       - path: /
@@ -17,5 +21,6 @@ spec:
         backend:
           service:
             name: connectwe-service-frontend
+
             port:
               number: 8081
