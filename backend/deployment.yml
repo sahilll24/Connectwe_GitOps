@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: connectwe-backend
-          image: sahil0724/connectwe-backend:9
+          image: sahil0724/connectwe-backend:10
           ports:
             - containerPort: 5000
           resources:
