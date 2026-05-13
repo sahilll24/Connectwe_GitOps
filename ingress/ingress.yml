@@ -5,22 +5,19 @@ metadata:
   name: connectwe-ingress
   namespace: connectwe-ns
 
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-
 spec:
   ingressClassName: nginx
 
   rules:
-  - host: connectwe.local
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
+    - host: connectwe.local
 
-        backend:
-          service:
-            name: connectwe-service-frontend
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
 
-            port:
-              number: 8081
+            backend:
+              service:
+                name: connectwe-service-frontend
+                port:
+                  number: 8081
